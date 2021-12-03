@@ -1,2 +1,2 @@
 # PIT_ClinicON
-Reposition do PIT da startup ClinicOn
+Repositorio do PIT da startup ClinicOn
