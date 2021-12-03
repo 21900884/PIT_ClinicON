@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "eMHHKt7lUqfsrQ4VsqhN380C5uWDG/H84rLHcJ8+HxctEHhh1QVsfLamQkB+PVq3IXl2/ZbCElfJFXcF/QDkGA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gabri\\source\\repos\\ClinicOnControle\\ClinicOnControle.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gabri\\.nuget\\packages\\mysqlconnector\\2.0.0\\mysqlconnector.2.0.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
