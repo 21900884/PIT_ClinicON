@@ -733,10 +733,9 @@ footer span a:hover{
                 <li><a href="#teams" class="menu-btn">Equipe</a></li>
                 <li><a href="#contact" class="menu-btn">Contato</a></li>
 				<li><a href="users.php" class="menu-btn">Chat</a></li>
-				<li><a href="perfil.php" class="menu-btn">Intranet</a></li>
 				<li><a href="php/logout.php?logout_id=<?php echo $row['unique_id'];?>" class="menu-btn">Logout</a></li>
-				<li><a href="perfil.php#perfil"><img src="php/images/<?php echo $row['img']; ?>" alt="user-img" width="36" class="img-circle"></a></li>
-				<li><a href="perfil.php#perfil"><?php echo $row['fname']. " " . $row['lname'] ?></li>
+				<li><a href="perfil.php#perfil"><img src="php/images/<?php echo $row['img']; ?>" alt="user-img" width="56" class="img-circle"></a></li>
+                <li><a id="perfil" href="perfil.php#perfil"><?php echo $row['fname']. " " . $row['lname'] ?></a></li>
             </ul>
             <div class="menu-btn">
                 <i class="fas fa-bars"></i>
@@ -777,13 +776,6 @@ footer span a:hover{
         <div class="max-width">
             <h2 class="title">Nossos serviços</h2>
             <div class="serv-content">
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-user-md"></i>
-                        <div class="text">Atendimento presencial</div>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quia sunt, quasi quo illo enim.</p>
-                    </div>
-                </div>
                 <div class="card">
                     <div class="box">
                         <i class="fas fa-laptop-house"></i>

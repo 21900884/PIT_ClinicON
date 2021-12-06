@@ -1,4 +1,4 @@
-const form = document.querySelector(".signup form"),
+const form = document.querySelector(".cadastro form"),
 continueBtn = form.querySelector(".button input"),
 errorText = form.querySelector(".error-text");
 

@@ -3,7 +3,7 @@
 
 Endereço do Banco de Dados: fdb25.awardspace.net
 Porta do Banco de Dados: 3306
-Nome do Banco de Dados: 3453039_biblioteca
-Usuário do Banco de Dados: 3453039_biblioteca
-Senha do Banco de Dados: FqfB8xfgmx2tdYnW
+Nome do Banco de Dados: 3453039_clinicon
+Usuário do Banco de Dados: 3453039_clinicon
+Senha do Banco de Dados: mByRcIT72555
 Versão do Banco de Dados: 5.7
