@@ -48,7 +48,7 @@ namespace ClinicOnControle
 			{
 				objMain.nome_admin = txt_nome.Text;
 				objMain.email_admin = txt_email.Text;
-				objMain.senha_admin = txt_senha.Text;
+				objMain.senha_admin = objMain.Criptografar(txt_senha.Text);
 
 				objMain.InserirAdmin();
 				MessageBox.Show("Cadastrado com sucesso!");
@@ -69,7 +69,7 @@ namespace ClinicOnControle
 				int.TryParse(txt_userId.Text, out objMain.id_admin);
 				objMain.nome_admin = txt_nome.Text;
 				objMain.email_admin = txt_email.Text;
-				objMain.senha_admin = txt_senha.Text;
+				objMain.senha_admin = objMain.Criptografar(txt_senha.Text);
 
 				objMain.AlterarAdmin();
 				MessageBox.Show("Alterado com sucesso!");
@@ -111,7 +111,7 @@ namespace ClinicOnControle
 			txt_userId.Text = dtg_admins.Rows[e.RowIndex].Cells[0].Value.ToString();
 			txt_nome.Text = dtg_admins.Rows[e.RowIndex].Cells[1].Value.ToString();
 			txt_email.Text = dtg_admins.Rows[e.RowIndex].Cells[2].Value.ToString();
-			txt_senha.Text = dtg_admins.Rows[e.RowIndex].Cells[3].Value.ToString();
+			txt_senha.Text = objMain.Descriptografar(dtg_admins.Rows[e.RowIndex].Cells[3].Value.ToString());
 		}
 
 		

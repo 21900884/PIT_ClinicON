@@ -65,12 +65,16 @@ namespace ClinicOnControle
 				txt_senha.Text != "" && txt_cpf.Text != "" && txt_dataDeNascimento.Text != "" && txt_sexo.Text != "" && txt_pais.Text != "" && 
 				txt_estado.Text != "" && txt_cidade.Text != "" && txt_logradouro.Text != "" && txt_imagem.Text != "" && txt_status.Text != "")
 			{
-				int.TryParse(txt_uniqueId.Text, out objMain.uniqueId_user);
+
+				Random rnd = new Random();
+				int random = rnd.Next(1, int.MaxValue);
+
+				int.TryParse(random.ToString(), out objMain.uniqueId_user);
 				objMain.fname_user = txt_nome.Text;
 				objMain.lname_user = txt_sobrenome.Text;
 				objMain.nomeSocial_user = txt_nomeSocial.Text;
 				objMain.email_user = txt_email.Text;
-				objMain.password_user = txt_senha.Text;
+				objMain.password_user = objMain.Criptografar(txt_senha.Text);
 				objMain.cpf_user = txt_cpf.Text;
 				objMain.dataDeNascimento_user = txt_dataDeNascimento.Text;
 				objMain.sexo_user = txt_sexo.Text;
@@ -108,7 +112,7 @@ namespace ClinicOnControle
 				objMain.lname_user = txt_sobrenome.Text;
 				objMain.nomeSocial_user = txt_nomeSocial.Text;
 				objMain.email_user = txt_email.Text;
-				objMain.password_user = txt_senha.Text;
+				objMain.password_user = objMain.Criptografar(txt_senha.Text);
 				objMain.cpf_user = txt_cpf.Text;
 				objMain.dataDeNascimento_user = txt_dataDeNascimento.Text;
 				objMain.sexo_user = txt_sexo.Text;
@@ -160,7 +164,7 @@ namespace ClinicOnControle
 			txt_sobrenome.Text = dtg_users.Rows[e.RowIndex].Cells[3].Value.ToString();
 			txt_nomeSocial.Text = dtg_users.Rows[e.RowIndex].Cells[4].Value.ToString();
 			txt_email.Text = dtg_users.Rows[e.RowIndex].Cells[5].Value.ToString();
-			txt_senha.Text = dtg_users.Rows[e.RowIndex].Cells[6].Value.ToString();
+			txt_senha.Text = objMain.Descriptografar(dtg_users.Rows[e.RowIndex].Cells[6].Value.ToString());
 			txt_cpf.Text = dtg_users.Rows[e.RowIndex].Cells[7].Value.ToString();
 			txt_dataDeNascimento.Text = dtg_users.Rows[e.RowIndex].Cells[8].Value.ToString();
 			txt_sexo.Text = dtg_users.Rows[e.RowIndex].Cells[9].Value.ToString();

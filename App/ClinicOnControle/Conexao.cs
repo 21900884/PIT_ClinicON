@@ -11,15 +11,19 @@ namespace ClinicOnControle
 	class Conexao
 	{
         MySqlConnection conexao;
+        string connString;
 
 
         public void Conectar()
         {
+            //connString = "SERVER=185.176.43.95;PORT=3306;DATABASE=3453039_clinicon;UID=3453039_clinicon;PASSWORD=mByRcIT72555";
             try
             {
-                string conn = "Persist Security Info = false; " + "server = localhost;port=3306; " + "database = clinicon; " + "uid = root; pwd=";
+                connString = "Persist Security Info = false; " + "server = localhost;port=3306; " + "database = clinicon; " + "uid = root; pwd=";
+                //conexao = new MySqlConnection(conn);
 
-                conexao = new MySqlConnection(conn);
+                conexao = new MySqlConnection();
+                conexao.ConnectionString = connString;
                 conexao.Open();
             }
             catch (MySqlException ex)
@@ -27,6 +31,18 @@ namespace ClinicOnControle
                 throw new Exception("Não foi possível conectar ao banco de dados.\n" + ex.Message);
             }
         }
+
+        private void Desconectar()
+		{
+            if (conexao != null)
+			{
+                conexao.Close();
+                conexao = null;
+			}
+		}
+
+
+
 
         public DataTable ExecutarConsulta(string sql)       //sql é uma string que deve conter uma instrução Select
         {

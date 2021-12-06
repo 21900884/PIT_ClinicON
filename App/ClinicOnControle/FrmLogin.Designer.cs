@@ -42,12 +42,14 @@ namespace ClinicOnControle
 			this.txt_nome = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.txt_userId = new System.Windows.Forms.TextBox();
+			this.button1 = new System.Windows.Forms.Button();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.button1);
 			this.groupBox2.Controls.Add(this.btn_testarConexao);
 			this.groupBox2.Controls.Add(this.btn_cadastrar);
 			this.groupBox2.Controls.Add(this.btn_login);
@@ -170,6 +172,16 @@ namespace ClinicOnControle
 			this.txt_userId.Size = new System.Drawing.Size(250, 23);
 			this.txt_userId.TabIndex = 1;
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(474, 22);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(150, 35);
+			this.button1.TabIndex = 15;
+			this.button1.Text = "Testar Conexao";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// FrmLogin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -201,6 +213,7 @@ namespace ClinicOnControle
 		private System.Windows.Forms.TextBox txt_nome;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox txt_userId;
+		private System.Windows.Forms.Button button1;
 	}
 }
 

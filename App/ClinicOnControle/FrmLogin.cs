@@ -43,7 +43,7 @@ namespace ClinicOnControle
 			if (txt_email.Text != "" && txt_senha.Text != "")
 			{
 				objMain.email_admin = txt_email.Text;
-				objMain.senha_admin = txt_senha.Text;
+				objMain.senha_admin = objMain.Criptografar(txt_senha.Text);
 
 				string email = "";
 				string senha = "";
@@ -54,7 +54,7 @@ namespace ClinicOnControle
 					senha = row["senha"].ToString();
 				}
 
-				if (email == txt_email.Text && senha == txt_senha.Text)
+				if (email == txt_email.Text && objMain.Descriptografar(senha) == txt_senha.Text)
 				{
 					MessageBox.Show("Logado com sucesso!");
 
@@ -83,7 +83,7 @@ namespace ClinicOnControle
 			{
 				objMain.nome_admin = txt_nome.Text;
 				objMain.email_admin = txt_email.Text;
-				objMain.senha_admin = txt_senha.Text;
+				objMain.senha_admin = objMain.Criptografar(txt_senha.Text);
 
 				objMain.InserirAdmin();
 				MessageBox.Show("Cadastrado com sucesso!");
@@ -96,6 +96,11 @@ namespace ClinicOnControle
 			{
 				MessageBox.Show("Por favor preencha todos os campos!");
 			}
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(objMain.Descriptografar(txt_senha.Text));
 		}
 	}
 }

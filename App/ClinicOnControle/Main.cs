@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +26,8 @@ namespace ClinicOnControle
 		string tbl_users = "users";
         string tbl_admins = "admins";
 
+        string hash = "0E91B78FE9CD35FA7C243BA8328E1570";
+
 
         //=================================================// Metodos - Outros //=================================================//
 
@@ -38,6 +41,36 @@ namespace ClinicOnControle
         {
             string login = $@"select email, senha from {tbl_admins} where email = '{email_admin}' and senha = '{senha_admin}';";
             return objConexao.ExecutarConsulta(login);
+        }
+
+        public string Criptografar(string texto)
+		{
+            byte[] data = UTF8Encoding.UTF8.GetBytes(texto);
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+			{
+                byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                using (TripleDESCryptoServiceProvider tripleDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+				{
+                    ICryptoTransform transform = tripleDes.CreateEncryptor();
+                    byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                    return Convert.ToBase64String(results, 0, results.Length);
+                }
+			}
+		}
+
+        public string Descriptografar(string texto)
+        {
+            byte[] data = Convert.FromBase64String(texto);
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            {
+                byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                using (TripleDESCryptoServiceProvider tripleDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                {
+                    ICryptoTransform transform = tripleDes.CreateDecryptor();
+                    byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                    return UTF8Encoding.UTF8.GetString(results);
+                }
+            }
         }
 
 
